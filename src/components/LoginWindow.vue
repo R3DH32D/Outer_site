@@ -48,11 +48,16 @@ const authHolder = {
                 <input type="password" class="form-control"  placeholder="Password"
                     v-model="authHolder.password" />
             </div>
+        <div style="margin-top: 10px; text-align: center;">
             <router-link :to="{ name: 'user' }">
             <button href="/" type="button" class="btn btn-primary" data-bs-target="#login" style="margin-bottom: 10px;" 
                 @click="userStorage.authInputUser(authHolder)">
                 Авторизоваться
             </button></router-link>
+            <div><button  type="button" class="btn btn-primary"  style="margin-bottom: 10px;" 
+                ><a href="https://job.istu.edu/in" style="color: azure; text-decoration: none;">Студенту</a>
+            </button></div>
+        </div>
         </div>
     </div>
 </template>
