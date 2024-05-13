@@ -49,7 +49,7 @@ const authHolder = {
                     v-model="authHolder.password" />
             </div>
             <router-link :to="{ name: 'user' }">
-            <button href="/" type="button" class="btn btn-primary" data-bs-target="#login" 
+            <button href="/" type="button" class="btn btn-primary" data-bs-target="#login" style="margin-bottom: 10px;" 
                 @click="userStorage.authInputUser(authHolder)">
                 Авторизоваться
             </button></router-link>

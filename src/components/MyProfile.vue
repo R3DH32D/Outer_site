@@ -1,29 +1,38 @@
 <template>
+    <div>
+        <div class="card">
+            <h1 style="text-align: center;">Профиль</h1>
+            <div class="card-body">
+                <h3 class="card-title"> Логин: {{ userStorage.user.username }}</h3>
+                <hr>
+                <h3 class="card-title">почта: {{ userStorage.user.email }}</h3>
+                <hr>
+                <h3 class="card-title">Имя: {{ userStorage.user.first_name }}</h3>
+                <hr>
+                <h3 class="card-title">Фамилия: {{ userStorage.user.last_name }}</h3>
+            </div>
+            
+                <div style="text-align: center;">
+                <div v-if="userStorage.user.is_superuser = true">
+                        <RouterLink :to="{ name: 'update' }">
+                            <button class="btn btn-primary" type="button" style="margin-bottom: 10px;">
+                                Добавить партнера
+                            </button>
+                        </RouterLink>
 
-    <div class="card" style="text-align: center;">
-        <h1 style="text-align: center;">Профиль</h1>
-        <div class="card-body">
-            <h3 class="card-title"> Логин: {{ userStorage.user.username }}</h3>
-            <hr>
-            <h3 class="card-title">почта: {{  userStorage.user.email }}</h3>
-            <hr>
-            <h3 class="card-title">Имя: {{ userStorage.user.first_name }}</h3>
-            <hr>
-            <h3 class="card-title">Фамилия: {{  userStorage.user.last_name}}</h3>
-        </div>
-        <RouterLink :to="{ name: 'auth' }">
-        <button class="btn btn-secondary" type="button" @click="logOut" >
-            Выйти
-        </button></RouterLink>
-        <div v-if="userStorage.user.is_superuser = true">
-            <RouterLink :to="{ name: 'update' }">
-            <button class="btn btn-primary" type="button">
-                добавить партнера
-            </button></RouterLink>
+                    </div>
+                
+                    <RouterLink :to="{ name: 'auth' }">
+                        <button class="btn btn-secondary" type="button" @click="logOut" style="margin-bottom: 10px;">
+                            Выйти
+                        </button>
+                    </RouterLink>
 
+                    
+                </div>
+            
         </div>
     </div>
-
 </template>
 <script setup>
 import { ref } from 'vue'
