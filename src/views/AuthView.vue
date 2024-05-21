@@ -1,8 +1,8 @@
 <template>
     <div >
         <div class="container" style="align-items: center; display:block">
-            
-                    <MyProfile></MyProfile>
+            <div class="d-flex justify-content-center"><MyProfile></MyProfile></div>
+                    
 
      
         </div>

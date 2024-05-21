@@ -4,6 +4,7 @@ import PracticeView from '@/views/PracticeView.vue';
 import UserView from '@/views/UserView'
 import AuthView from '@/views/AuthView.vue'
 import UpdateView from '@/views/UpdateView.vue'
+import AdminView from '@/views/AdminView.vue'
 const routes = [
   { 
     
@@ -29,6 +30,11 @@ const routes = [
     path: '/out/update',
     name: 'update',
     component: UpdateView
+  },
+  {
+    path: "/out/admin",
+    name: "admin",
+    component: AdminView
   }
  
 ]

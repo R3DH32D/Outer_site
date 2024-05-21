@@ -25,13 +25,38 @@
                 </button>
             </div>
         </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Создание практики
+                </h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Введите ID компании</label>
+                    <input class="form-control" placeholder="ID company" v-model="pracHolder.company" />
+                </div>
+                <div class="form-group">
+                    <label>Введите ID института</label>
+                    <input class="form-control" placeholder="Id faculty" v-model="pracHolder.faculty" />
+                </div>
+                <div class="form-group">
+                    <label>Введите название практики</label>
+                    <input class="form-control" placeholder="name" v-model="pracHolder.name" />
+                </div>
+                <button class="btn btn-primary" type="button" @click="addPractice">
+                    Добавить
+                </button>
+            </div>
+        </div>
     </div>
 
 </template>
 <script setup>
 import { useUserStorage } from '@/storages/UserStorage';
 import { usePracticeStorage } from '@/storages/PracticeStorage'
-import { ref,onBeforeMount } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import axios from 'axios'
 const userStorage = ref(useUserStorage())
 
@@ -42,6 +67,12 @@ const partnerHolder = {
     image: '',
     agreements: ''
 }
+
+const pracHolder = {
+    name: '',
+    company: '',
+    faculty: ''
+}
 const addPartner = async () => {
     try {
         await axios.post('/api/out/legacy/company/add', partnerHolder,
@@ -49,9 +80,26 @@ const addPartner = async () => {
                 auth: userStorage.value.auth,
             })
             .then(res => res.data)
-            .then(data=>console.log(data))
+            .then(data => console.log(data))
             .then(res => alert("Партнер добавлен"))
-            
+
+    } catch (err) {
+        alert('У вас нет прав админа')
+        console.log(userStorage.value.auth)
+        console.log(err)
+    }
+
+}
+const addPractice = async () => {
+    try {
+        await axios.post('/api/out/base/practice/add', pracHolder,
+            {
+                auth: userStorage.value.auth,
+            })
+            .then(res => res.data)
+            .then(data => console.log(data))
+            .then(res => alert("практика добавлена"))
+
     } catch (err) {
         alert('У вас нет прав админа')
         console.log(userStorage.value.auth)
@@ -61,5 +109,6 @@ const addPartner = async () => {
 }
 onBeforeMount(() => {
     userStorage.value.authUser()
+
 })
 </script>

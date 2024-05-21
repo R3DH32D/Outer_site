@@ -21,6 +21,11 @@
                 
             </button></RouterLink>
         </div>
+        <RouterLink :to="{name:'admin'}">
+            <button>
+                heh
+            </button>
+        </RouterLink>
     </div>
 
 
