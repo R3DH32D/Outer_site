@@ -25,31 +25,7 @@
                 </button>
             </div>
         </div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">
-                    Создание практики
-                </h5>
-
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Введите ID компании</label>
-                    <input class="form-control" placeholder="ID company" v-model="pracHolder.company" />
-                </div>
-                <div class="form-group">
-                    <label>Введите ID института</label>
-                    <input class="form-control" placeholder="Id faculty" v-model="pracHolder.faculty" />
-                </div>
-                <div class="form-group">
-                    <label>Введите название практики</label>
-                    <input class="form-control" placeholder="name" v-model="pracHolder.name" />
-                </div>
-                <button class="btn btn-primary" type="button" @click="addPractice">
-                    Добавить
-                </button>
-            </div>
-        </div>
+        
     </div>
 
 </template>
